@@ -9,7 +9,7 @@ app.set("views", path.join(__dirname + "/src/views"));
 
 console.log(__dirname + '/src/public')
 
-mongoose.connect('mongodb://localhost/urlShortener', {
+mongoose.connect('mongodb+srv://spmco:DbKc07010@dburl.spiqqii.mongodb.net/?retryWrites=true&w=majority', {
   useNewUrlParser: true, useUnifiedTopology: true
 })
 
