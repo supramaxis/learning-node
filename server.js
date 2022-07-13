@@ -1,11 +1,19 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const ShortUrl = require('./models/shortUrl')
+const ShortUrl = require('./src/models/shortUrl')
+const path = require('path')
 const app = express()
+
+app.use(express.static(path.join(__dirname, "/src/public")));
+app.set("views", path.join(__dirname + "/src/views"));
+
+console.log(__dirname + '/src/public')
 
 mongoose.connect('mongodb://localhost/urlShortener', {
   useNewUrlParser: true, useUnifiedTopology: true
 })
+
+
 
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
@@ -30,5 +38,6 @@ app.get('/:shortUrl', async (req, res) => {
 
   res.redirect(shortUrl.full)
 })
+
 
 app.listen(process.env.PORT || 5000);
