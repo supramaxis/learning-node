@@ -1,0 +1,18 @@
+###
+GET http://localhost:4400/
+
+###
+POST http://localhost:4400/shortUrls
+Content-Type: application/json
+
+{
+  "full": "https://www.google.com"
+}
+
+###
+PUT http://localhost:4400/edit/62da32100d44bcc386cc1f4c
+Content-Type: application/json
+
+{
+  "short": "test2"
+}
